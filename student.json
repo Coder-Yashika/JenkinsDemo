@@ -1,0 +1,20 @@
+[
+    {
+        "name":"Rahul",
+        "email":"rahul@gmail.com",
+        "mobile":"9876543210",
+        "branch":"CSE"
+    },
+    {
+        "name":"Priya",
+        "email":"priya@gmail.com",
+        "mobile":"9876543211",
+        "branch":"IT"
+    },
+    {
+        "name":"Aman",
+        "email":"aman@gmail.com",
+        "mobile":"9876543212",
+        "branch":"ECE"
+    }
+]
