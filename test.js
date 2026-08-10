@@ -17,15 +17,15 @@ else{
     console.log("T C-02 :script.js exists :FAIL");
     passed =false;
 }
-if(fs.existsSync("studentjson")){
+if(fs.existsSync("student.json")){
      console.log("T C-03 :studentjson exists :PASS");
 }
 else{
     console.log("T C-03 :studentjson exists :FAIL");
     passed =false;
 }
-const students =JSON.parse(fs.readFileSyntnc("student.json"));
-const student=studnents[0];
+const students =JSON.parse(fs.readFileSync("student.json"));
+const student=students[0];
 
 if(fs.existsSync("style.css")){
      console.log("T C-04 :style.css exists :PASS");
@@ -82,6 +82,6 @@ if(passed){
       process.exit(0);
 }
 else{
-    console.log("T C-09 :Password Validation :FAIL");
+    console.log("T C-10 :all test Cases :FAIL");
     passed =false;
 }

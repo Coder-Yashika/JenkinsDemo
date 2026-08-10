@@ -3,18 +3,22 @@
         "name":"Rahul",
         "email":"rahul@gmail.com",
         "mobile":"9876543210",
-        "branch":"CSE"
+        "branch":"CSE",
+        "password": "Rahul"
+
     },
     {
         "name":"Priya",
-        "email":"priya@gmail.com",
-        "mobile":"9876543211",
-        "branch":"IT"
+        "email":"priyagmail.com",
+        "mobile":"9876541",
+        "branch":"IT",
+        "password": "priys@56793"
     },
     {
         "name":"Aman",
         "email":"aman@gmail.com",
         "mobile":"9876543212",
-        "branch":"ECE"
+        "branch":"ECE",
+        "password": "amannn$123"
     }
 ]

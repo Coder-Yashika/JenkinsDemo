@@ -1,10 +1,10 @@
 {
   "name": "jenkinsdemo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Student Registration Jenkins Demo",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Coder-Yashika/JenkinsDemo/issues"
   },
-  "homepage": "https://github.com/Coder-Yashika/JenkinsDemo#readme"
+  "homepage": "https://github.com/Coder-Yashika/JenkinsDemo#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
