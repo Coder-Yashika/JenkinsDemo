@@ -1,75 +1,136 @@
-const form=document.getElementById("registrationForm");
+const form = document.getElementById("registrationForm");
 
-form.addEventListener("submit",function(e){
+form.addEventListener("submit", async function (e) {
 
-e.preventDefault();
+    e.preventDefault();
 
-const name=document.getElementById("name").value.trim();
-const email=document.getElementById("email").value.trim();
-const mobile=document.getElementById("mobile").value.trim();
-const branch=document.getElementById("branch").value;
-const password=document.getElementById("password").value;
-const confirm=document.getElementById("confirmPassword").value;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const branch = document.getElementById("branch").value;
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("confirmPassword").value;
 
-const message=document.getElementById("message");
+    const message = document.getElementById("message");
 
-const namePattern=/^[A-Za-z ]{3,}$/;
-const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const mobilePattern=/^[0-9]{10}$/;
-const passwordPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
+    // Name validation
+    const namePattern = /^[A-Za-z ]{3,}$/;
 
-if(!namePattern.test(name)){
-message.style.color="red";
-message.innerHTML="Invalid Name";
-return;
-}
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-if(!emailPattern.test(email)){
-message.style.color="red";
-message.innerHTML="Invalid Email";
-return;
-}
+    // Mobile validation
+    const mobilePattern = /^[0-9]{10}$/;
 
-if(!mobilePattern.test(mobile)){
-message.style.color="red";
-message.innerHTML="Invalid Mobile Number";
-return;
-}
+    // Password validation
+    const passwordPattern = /^.{6,}$/;
 
-if(branch==""){
-message.style.color="red";
-message.innerHTML="Select Branch";
-return;
-}
 
-if(!passwordPattern.test(password)){
-message.style.color="red";
-message.innerHTML="Weak Password";
-return;
-}
+    // Name
+    if (!namePattern.test(name)) {
 
-if(password!==confirm){
-message.style.color="red";
-message.innerHTML="Passwords do not match";
-return;
-}
+        message.style.color = "red";
+        message.innerHTML = "Invalid Name";
+        return;
+    }
 
-const student={
-name,
-email,
-mobile,
-branch
-};
 
-let students=JSON.parse(localStorage.getItem("students"))||[];
+    // Email
+    if (!emailPattern.test(email)) {
 
-students.push(student);
+        message.style.color = "red";
+        message.innerHTML = "Invalid Email";
+        return;
+    }
 
-localStorage.setItem("students",JSON.stringify(students));
 
-message.style.color="green";
-message.innerHTML="Registration Successful";
+    // Mobile
+    if (!mobilePattern.test(mobile)) {
 
-form.reset();
+        message.style.color = "red";
+        message.innerHTML = "Invalid Mobile Number";
+        return;
+    }
+
+
+    // Branch
+    if (branch === "") {
+
+        message.style.color = "red";
+        message.innerHTML = "Select Branch";
+        return;
+    }
+
+
+    // Password
+    if (!passwordPattern.test(password)) {
+
+        message.style.color = "red";
+        message.innerHTML = "Weak Password";
+        return;
+    }
+
+
+    // Confirm password
+    if (password !== confirm) {
+
+        message.style.color = "red";
+        message.innerHTML = "Passwords do not match";
+        return;
+    }
+
+
+    // Student object
+    const student = {
+        name: name,
+        email: email,
+        mobile: mobile,
+        branch: branch,
+        password: password
+    };
+
+
+    try {
+
+        // Send student data to Node.js server
+        const response = await fetch("/register", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(student)
+
+        });
+
+
+        const result = await response.json();
+
+
+        if (result.success) {
+
+            message.style.color = "green";
+            message.innerHTML = "Registration Successful";
+
+            form.reset();
+
+        } else {
+
+            message.style.color = "red";
+            message.innerHTML = result.message;
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        message.style.color = "red";
+        message.innerHTML =
+            "Server error. Please try again.";
+
+    }
 
 });

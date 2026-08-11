@@ -1,24 +1,37 @@
 [
     {
-        "name":"Rahul",
-        "email":"rahul@gmail.com",
-        "mobile":"9876543210",
-        "branch":"CSE",
-        "password": "Rahul"
-
+        "name": "Rahul",
+        "email": "rahul@gmail.com",
+        "mobile": "9876543210",
+        "branch": "CSE",
+        "password": "Rahul123"
     },
     {
-        "name":"Priya",
-        "email":"priyagmail.com",
-        "mobile":"9876541",
-        "branch":"IT",
-        "password": "priys@56793"
+        "name": "Priya",
+        "email": "priya@gmail.com",
+        "mobile": "9876543211",
+        "branch": "IT",
+        "password": "Priya123"
     },
     {
-        "name":"Aman",
-        "email":"aman@gmail.com",
-        "mobile":"9876543212",
-        "branch":"ECE",
-        "password": "amannn$123"
+        "name": "Aman",
+        "email": "aman@gmail.com",
+        "mobile": "9876543212",
+        "branch": "ECE",
+        "password": "Aman123"
+    },
+    {
+        "name": "YASHIKA BANSAL",
+        "email": "yashikabansal1507@gmail.com",
+        "mobile": "8955380262",
+        "branch": "CSE",
+        "password": "123456"
+    },
+    {
+        "name": "Yashika",
+        "email": "yashikas0711@gmail.com",
+        "mobile": "9828195551",
+        "branch": "CSE",
+        "password": "Yashika@123?"
     }
 ]
